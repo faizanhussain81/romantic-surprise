@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Beautiful Love ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:#4d315d;
+    background:#b99ad9;
+}
+
+/* ---------- LAVENDER START SCREEN ---------- */
+
+#start{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 35%,rgba(255,255,255,.92) 0%,rgba(245,231,255,.75) 25%,transparent 55%),
+        linear-gradient(135deg,#8d6bb5 0%,#b99ad9 45%,#d9bfe9 100%);
+    transition:opacity 1.2s ease,visibility 1.2s ease;
+}
+#start.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.startBox{
+    width:min(700px,92vw);
+    padding:25px;
+    position:relative;
+    z-index:20;
+    animation:intro 1.2s ease;
+}
+
+.startFlowers{
+    font-size:clamp(36px,7vw,62px);
+    margin-bottom:10px;
+    animation:breathe 2s ease-in-out infinite;
+}
+
+.startBox h1{
+    font-family:Georgia,serif;
+    font-size:clamp(34px,7vw,62px);
+    line-height:1.05;
+    margin:15px 0;
+    color:#fff;
+    text-shadow:0 3px 18px rgba(65,35,90,.35);
+}
+
+.startBox p{
+    color:#fff;
+    font-size:19px;
+    margin:18px 0 30px;
+    text-shadow:0 2px 10px rgba(65,35,90,.3);
+}
+
+#open{
+    border:0;
+    color:white;
+    background:linear-gradient(135deg,#e1a62b,#c97812);
+    padding:17px 38px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+    box-shadow:0 12px 35px rgba(87,43,15,.35);
+    transition:.25s;
+    position:relative;
+    z-index:2000;
+    touch-action:manipulation;
+}
+#open:hover{transform:scale(1.07)}
+#open:active{transform:scale(.96)}
+
+@keyframes intro{
+    from{opacity:0;transform:translateY(30px) scale(.96)}
+    to{opacity:1;transform:none}
+}
+@keyframes breathe{50%{transform:scale(1.08)}}
+
+/* ---------- SUNFLOWERS ---------- */
+
+.sunflower{
+    position:absolute;
+    width:125px;
+    height:125px;
+    z-index:5;
+    filter:drop-shadow(0 9px 10px rgba(55,30,65,.22));
+    animation:sway 4s ease-in-out infinite;
+}
+.sunflower.small{transform:scale(.72)}
+.sunflower.large{transform:scale(1.15)}
+
+.sf1{left:-18px;top:8%;transform:rotate(-12deg)}
+.sf2{right:-20px;top:7%;transform:rotate(14deg);animation-delay:1s}
+.sf3{left:1%;bottom:4%;transform:rotate(-18deg) scale(.95);animation-delay:.5s}
+.sf4{right:0%;bottom:3%;transform:rotate(15deg) scale(.9);animation-delay:1.5s}
+.sf5{left:15%;top:-35px;transform:scale(.55);animation-delay:1.2s}
+.sf6{right:13%;top:-30px;transform:scale(.5);animation-delay:2s}
+
+@keyframes sway{
+    0%,100%{margin-top:0}
+    50%{margin-top:7px}
+}
+
+.sunflower svg{width:100%;height:100%}
+
+/* ---------- SCENE ---------- */
+
+#scene{
+    display:none;
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 42%,rgba(255,255,255,.96) 0%,rgba(246,235,255,.9) 20%,rgba(215,188,235,.82) 52%,rgba(151,113,190,.98) 100%);
+}
+
+#scene::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 12% 30%,rgba(255,255,255,.22),transparent 22%),
+        radial-gradient(circle at 88% 70%,rgba(255,255,255,.18),transparent 25%);
+    pointer-events:none;
+}
+
+.glow{
+    position:absolute;
+    width:65vmin;
+    height:65vmin;
+    left:50%;
+    top:53%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(circle,#ffffffc9 0,transparent 68%);
+    filter:blur(10px);
+}
+
+.intro{
+    position:absolute;
+    top:9%;
+    width:100%;
+    text-align:center;
+    font:clamp(21px,4vw,34px) Georgia,serif;
+    color:#593d6d;
+    opacity:0;
+    animation:fade 2s .2s forwards;
+    z-index:12;
+    text-shadow:0 2px 10px #fff8;
+}
+
+@keyframes fade{to{opacity:1}}
+
+/* ---------- FLOATING FLOWERS ---------- */
+
+.flower{
+    position:absolute;
+    bottom:-80px;
+    font-size:42px;
+    z-index:4;
+    animation:rise linear infinite;
+    opacity:0;
+    pointer-events:none;
+}
+.flower:nth-of-type(1){left:4%;animation-duration:10s}
+.flower:nth-of-type(2){left:18%;animation-duration:13s;animation-delay:2s}
+.flower:nth-of-type(3){left:35%;animation-duration:11s;animation-delay:1s}
+.flower:nth-of-type(4){left:60%;animation-duration:12s;animation-delay:3s}
+.flower:nth-of-type(5){left:80%;animation-duration:10s;animation-delay:1s}
+.flower:nth-of-type(6){left:93%;animation-duration:14s;animation-delay:4s}
+
+@keyframes rise{
+    0%{transform:translateY(0) rotate(0);opacity:0}
+    15%{opacity:.8}
+    100%{transform:translateY(-120vh) rotate(360deg);opacity:0}
+}
+
+/* ---------- REAL HEART ---------- */
+
+.target{
+    position:absolute;
+    left:50%;
+    top:53%;
+    transform:translate(-50%,-50%);
+    width:min(190px,38vw);
+    height:min(190px,38vw);
+    z-index:20;
+}
+
+.heartBase{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    font-size:min(175px,30vw);
+    filter:drop-shadow(0 15px 20px rgba(80,20,90,.3));
+    animation:beat 1.15s infinite;
+}
+
+.heartBase.hit{animation:heartHit .75s forwards}
+
+@keyframes beat{50%{transform:scale(1.12)}}
+
+@keyframes heartHit{
+    0%{transform:scale(1);opacity:1}
+    25%{transform:scale(1.35);filter:drop-shadow(0 0 30px #ff77a5)}
+    100%{transform:scale(.15);opacity:0}
+}
+
+/* ---------- SVG ARROW ---------- */
+
+.arrow{
+    position:absolute;
+    left:-170px;
+    top:53%;
+    z-index:40;
+    width:150px;
+    height:48px;
+    opacity:0;
+    pointer-events:none;
+    filter:drop-shadow(0 5px 6px rgba(55,25,60,.35));
+}
+.arrow.fly{
+    opacity:1;
+    animation:fly 2.6s cubic-bezier(.2,.8,.15,1) forwards;
+}
+.arrow svg{width:100%;height:100%;overflow:visible}
+
+@keyframes fly{
+    0%{left:-170px;transform:translateY(-50%) rotate(-1deg)}
+    82%{left:calc(50% - 82px);transform:translateY(-50%) rotate(-1deg)}
+    92%{left:calc(50% - 42px);transform:translateY(-50%) rotate(-1deg)}
+    100%{left:calc(50% - 5px);transform:translateY(-50%) rotate(-1deg)}
+}
+
+/* ---------- IMPACT ---------- */
+
+.ring{
+    position:absolute;
+    left:50%;
+    top:53%;
+    width:40px;
+    height:40px;
+    border:5px solid #f5bd35;
+    border-radius:50%;
+    transform:translate(-50%,-50%) scale(.2);
+    opacity:0;
+    z-index:45;
+}
+.ring.show{animation:ring 1s ease-out forwards}
+
+@keyframes ring{
+    0%{opacity:1;transform:translate(-50%,-50%) scale(.2)}
+    100%{opacity:0;transform:translate(-50%,-50%) scale(8)}
+}
+
+.particle{
+    position:absolute;
+    left:50%;
+    top:53%;
+    z-index:60;
+    opacity:0;
+    font-size:28px;
+    pointer-events:none;
+}
+.particle.show{animation:burst 1.4s ease-out forwards}
+
+@keyframes burst{
+    0%{opacity:1;transform:translate(-50%,-50%) scale(.2)}
+    100%{
+        opacity:0;
+        transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.4)
+    }
+}
+
+/* ---------- PHOTO REVEAL ---------- */
+
+#reveal{
+    position:absolute;
+    inset:0;
+    z-index:80;
+    display:grid;
+    place-items:center;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    background:
+        radial-gradient(circle,#fff 0,#fff5fb 28%,#e3cef0 70%,#b99ad9 100%);
+}
+#reveal.show{
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    animation:reveal 1.8s ease;
+}
+
+@keyframes reveal{
+    from{transform:scale(.75)}
+    to{transform:scale(1)}
+}
+
+.revealContent{
+    text-align:center;
+    width:min(600px,92vw);
+    padding:15px;
+}
+
+.photo{
+    width:min(350px,75vw);
+    height:min(455px,55vh);
+    margin:auto;
+    padding:9px;
+    background:white;
+    border-radius:24px;
+    box-shadow:0 25px 70px rgba(70,30,80,.38);
+    transform:rotate(-2deg);
+    animation:photo 1.7s cubic-bezier(.2,.8,.2,1);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:17px;
+    display:block;
+}
+
+@keyframes photo{
+    from{opacity:0;transform:translateY(80px) rotate(-10deg) scale(.7)}
+    to{opacity:1;transform:translateY(0) rotate(-2deg) scale(1)}
+}
+
+.message{
+    animation:message 1.4s .7s both;
+}
+
+.message h2{
+    font:clamp(28px,6vw,44px) Georgia,serif;
+    color:#8d3a8e;
+    margin:22px 0 8px;
+    text-shadow:0 2px 8px #fff;
+}
+
+.message p{
+    font-size:clamp(16px,3vw,20px);
+    line-height:1.55;
+    margin:0 auto;
+    max-width:550px;
+}
+
+.signature{
+    font:italic 22px Georgia,serif;
+    color:#8d3a8e;
+    margin-top:12px;
+}
+
+@keyframes message{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:none}
+}
+
+/* ---------- PETALS ---------- */
+
+.petal{
+    position:fixed;
+    top:-50px;
+    z-index:90;
+    pointer-events:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{transform:translateY(115vh) rotate(720deg)}
+}
+
+@media(max-width:600px){
+    .sunflower{width:90px;height:90px}
+    .sf5,.sf6{display:none}
+    .photo{height:50vh}
+}
+</style>
+</head>
+
+<body>
+
+<!-- REUSABLE SUNFLOWER -->
+<svg width="0" height="0" style="position:absolute">
+<defs>
+    <g id="sunflowerGraphic">
+        <!-- green leaves -->
+        <path d="M59 88 C32 83,20 97,14 110 C38 112,55 105,63 94Z" fill="#4d8b43"/>
+        <path d="M67 88 C91 81,104 92,111 105 C88 109,74 103,65 94Z" fill="#5a9847"/>
+        <!-- stem -->
+        <path d="M61 60 C62 75,63 91,61 111" stroke="#4b843c" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- petals -->
+        <g fill="#f5b51b" stroke="#d99408" stroke-width="1.5">
+            <ellipse cx="62" cy="14" rx="10" ry="28"/>
+            <ellipse cx="62" cy="110" rx="10" ry="28"/>
+            <ellipse cx="14" cy="62" rx="28" ry="10"/>
+            <ellipse cx="110" cy="62" rx="28" ry="10"/>
+            <ellipse cx="28" cy="28" rx="11" ry="25" transform="rotate(-45 28 28)"/>
+            <ellipse cx="96" cy="28" rx="11" ry="25" transform="rotate(45 96 28)"/>
+            <ellipse cx="28" cy="96" rx="11" ry="25" transform="rotate(45 28 96)"/>
+            <ellipse cx="96" cy="96" rx="11" ry="25" transform="rotate(-45 96 96)"/>
+        </g>
+        <!-- center -->
+        <circle cx="62" cy="62" r="25" fill="#754316"/>
+        <circle cx="55" cy="54" r="4" fill="#9a5c20"/>
+        <circle cx="70" cy="59" r="4" fill="#9a5c20"/>
+        <circle cx="59" cy="69" r="4" fill="#9a5c20"/>
+        <circle cx="74" cy="72" r="4" fill="#9a5c20"/>
+        <circle cx="66" cy="47" r="3" fill="#b4772c"/>
+    </g>
+</defs>
+</svg>
+
+<!-- START SCREEN -->
+<div id="start">
+
+    <div class="sunflower sf1"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf2"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf3"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf4"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf5"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf6"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+
+    <div class="startBox">
+        <div class="startFlowers">🌹 🌸 🌷 🌸 🌹</div>
+        <h1>I Made Something<br>For You ❤️</h1>
+        <p>A little surprise, made especially for you...</p>
+        <button id="open" type="button">💕 Tap To Open 💕</button>
+    </div>
+</div>
+
+<!-- MAIN SCENE -->
+<div id="scene">
+
+    <div class="glow"></div>
+
+    <div class="intro">
+        I have something special to show you... ❤️
+    </div>
+
+    <div class="flower">🌹</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌹</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+
+    <!-- sunflowers in the scene -->
+    <div class="sunflower sf1"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf2"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf3"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+    <div class="sunflower sf4"><svg viewBox="0 0 125 125"><use href="#sunflowerGraphic"/></svg></div>
+
+    <div class="target">
+        <div id="heart" class="heartBase">❤️</div>
+    </div>
+
+    <!-- REAL SVG ARROW -->
+    <div id="arrow" class="arrow">
+        <svg viewBox="0 0 150 48">
+            <line x1="8" y1="24" x2="125" y2="24"
+                  stroke="#553047" stroke-width="6" stroke-linecap="round"/>
+            <path d="M122 7 L148 24 L122 41 L127 24 Z"
+                  fill="#d49b16"/>
+            <path d="M25 12 L8 24 L25 36"
+                  fill="none" stroke="#553047" stroke-width="5"
+                  stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <div id="ring" class="ring"></div>
+
+    <div class="particle" style="--x:-170px;--y:-130px">💖</div>
+    <div class="particle" style="--x:170px;--y:-130px">✨</div>
+    <div class="particle" style="--x:-190px;--y:90px">🌸</div>
+    <div class="particle" style="--x:190px;--y:90px">💕</div>
+    <div class="particle" style="--x:0;--y:-190px">🌻</div>
+    <div class="particle" style="--x:0;--y:170px">❤️</div>
+
+    <!-- PHOTO -->
+    <div id="reveal">
+        <div class="revealContent">
+
+            <div class="photo">
+                <img src="SF.jpeg" alt="My Beautiful Love">
+            </div>
+
+            <div class="message">
+                <h2>My Beautiful Love ❤️</h2>
+                <p>
+                    In a world full of beautiful flowers,
+                    somehow I was lucky enough to find you. 🌻🌹
+                </p>
+                <div class="signature">Forever yours ❤️</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+    const open=document.getElementById("open");
+    const start=document.getElementById("start");
+    const scene=document.getElementById("scene");
+    const arrow=document.getElementById("arrow");
+    const heart=document.getElementById("heart");
+    const ring=document.getElementById("ring");
+    const reveal=document.getElementById("reveal");
+    const particles=document.querySelectorAll(".particle");
+
+    let started=false;
+
+    open.addEventListener("click",function(){
+
+        if(started)return;
+        started=true;
+
+        start.classList.add("hide");
+
+        setTimeout(function(){
+            scene.style.display="block";
+        },400);
+
+        /* arrow begins */
+        setTimeout(function(){
+            arrow.classList.add("fly");
+        },1500);
+
+        /* arrow hits heart */
+        setTimeout(function(){
+
+            heart.classList.add("hit");
+            ring.classList.add("show");
+
+            particles.forEach(function(p){
+                p.classList.add("show");
+            });
+
+        },4100);
+
+        /* reveal photo */
+        setTimeout(function(){
+
+            reveal.classList.add("show");
+            createPetals();
+
+        },5500);
+    });
+
+    function createPetals(){
+
+        const items=["🌹","🌸","🌷","💖","💕","✨","🌻"];
+
+        for(let i=0;i<55;i++){
+
+            const p=document.createElement("div");
+
+            p.className="petal";
+            p.textContent=items[Math.floor(Math.random()*items.length)];
+
+            p.style.left=Math.random()*100+"vw";
+            p.style.fontSize=(14+Math.random()*24)+"px";
+            p.style.animationDuration=(4+Math.random()*6)+"s";
+            p.style.animationDelay=Math.random()*4+"s";
+
+            document.body.appendChild(p);
+
+            setTimeout(function(){
+                p.remove();
+            },13000);
+        }
+    }
+});
+</script>
+
+</body>
+</html>
